@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+
 		{{ Basset::show('bootstrapper.css') }}
 		{{ Basset::show('bootstrapper.js') }}
+
 		<style>
 			table form { margin-bottom: 0; }
 			form ul { margin-left: 0; list-style: none; }
