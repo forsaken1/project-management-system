@@ -6,13 +6,7 @@
 		{{ Basset::show('bootstrapper.css') }}
 		{{ Basset::show('bootstrapper.js') }}
 
-		<style>
-			table form { margin-bottom: 0; }
-			form ul { margin-left: 0; list-style: none; }
-			.error { color: red; font-style: italic; }
-			body { padding-top: 20px; }
-			.header-margin { height:20px; }
-		</style>
+		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 	</head>
 
 	<body>
