@@ -28,3 +28,7 @@ Route::group(array('prefix' => 'user'), function() {
 	Route::post('reset_password',          'UserController@do_reset_password');
 	Route::get( 'logout',                  'UserController@logout');
 });
+
+App::missing(function ($exception) {
+	return Response::view('errors.missing', array(), 404);
+});
