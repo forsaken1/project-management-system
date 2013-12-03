@@ -7,7 +7,7 @@ class UsersTableSeeder extends Seeder {
 		// Uncomment the below to wipe the table clean before populating
 		DB::table('users')->truncate();
 
-		$users = array(
+		$users[] = array(
 			'username' => 'admin',
 			'first_name' => '',
 			'last_name' => '',
@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder {
 			'updated_at' => '2013-12-03 13:04:09',
 		);
 
-		$users = array(
+		$users[] = array(
 			'username' => 'alexey',
 			'first_name' => 'Алексей',
 			'last_name' => 'Крылов',
@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder {
 			'updated_at' => '2013-12-03 13:04:09',
 		);
 
-		$users = array(
+		$users[] = array(
 			'username' => 'sergey',
 			'first_name' => 'Сергей',
 			'last_name' => 'Петров',
@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder {
 			'updated_at' => '2013-12-03 13:04:09',
 		);
 
-		$users = array(
+		$users[] = array(
 			'username' => 'alexander',
 			'first_name' => 'Александр',
 			'last_name' => 'Пушкин',
@@ -59,7 +59,7 @@ class UsersTableSeeder extends Seeder {
 			'updated_at' => '2013-12-03 13:04:09',
 		);
 
-		$users = array(
+		$users[] = array(
 			'username' => 'vladimir',
 			'first_name' => 'Владимир',
 			'last_name' => 'Ленин',
