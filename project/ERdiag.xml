@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="project" nm="project" ver="1.3.4">
+  <VerLbl/>
+  <VerNotes/>
+  <DefTblOpts/>
+  <DocFolder>C:\Users\Алексей\Desktop</DocFolder>
+  <Sch Cm="" nm="schemaA">
+    <Tbl UsSo="1" nm="project_employers">
+      <TblOpts/>
+      <Cl au="0" df="" nm="user_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="project_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="manager" nu="0">
+        <DT arr="0" ds="TinyInt" en="" id="-6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_project_employer_personal" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="users" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="project_employers" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="user_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_project_employer_project" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="projects" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="project_employers" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="project_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="project_manager">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkproject_manager"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="personal_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="projects">
+      <TblOpts/>
+      <Pk ClNs="id, date_start" nm="pkprojects"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="name" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="date_start" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="date_end" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="stages">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkstages"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="name" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="project_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="weight" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_stage_project" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="projects" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="stages" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="project_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="task_child_parent">
+      <TblOpts/>
+      <Cl au="0" df="" nm="task_child" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="task_parent" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_task_child_parent_tasks" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="tasks" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="task_child_parent" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="task_child" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="task_files">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pktask_files"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="file_path" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="255" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="task_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_task_files_task" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="tasks" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="task_files" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="task_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="task_reports">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pktask_reports"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="time_start" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="time_end" nu="0">
+        <DT arr="0" ds="TimeStamp" en="" id="93" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="report_text" nu="0">
+        <DT arr="0" ds="Text" en="" id="703" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="task_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="employer_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_task_report_task" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="tasks" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="task_reports" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="task_id" prCl="id"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="tasks">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pktasks"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="priority" nu="0">
+        <DT arr="0" ds="TinyInt" en="" id="-6" ln="null" sc="null" sg="0" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="status" nu="0">
+        <DT arr="0" ds="TinyInt" en="" id="-6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="work_time" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="stage_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="employer_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="project_id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_task_project" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="projects" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="tasks" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="project_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_tasks_project_employers" prLkCl="user_id" upAc="3">
+        <PrTb mn="0" nm="project_employers" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="0" nm="tasks" oe="1" sch="schemaA" zr="0"/>
+        <ClPr cdCl="employer_id" prCl="user_id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_tasks_stages" prLkCl="id" upAc="3">
+        <PrTb mn="0" nm="stages" oe="1" sch="schemaA" zr="1"/>
+        <CdTb mn="1" nm="tasks" oe="1" sch="schemaA" zr="0"/>
+        <ClPr cdCl="stage_id" prCl="id"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_tasks_task_child_parent" prLkCl="task_parent" upAc="3">
+        <PrTb mn="0" nm="task_child_parent" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="tasks" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="priority" prCl="task_parent"/>
+      </Fk>
+      <Fk deAc="3" nm="fk_tasks_task_parent_child" prLkCl="task_parent" upAc="3">
+        <PrTb mn="0" nm="task_child_parent" oe="1" sch="schemaA" zr="0"/>
+        <CdTb mn="1" nm="tasks" oe="0" sch="schemaA" zr="1"/>
+        <ClPr cdCl="id" prCl="task_parent"/>
+      </Fk>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <Tbl UsSo="1" nm="users">
+      <TblOpts/>
+      <Pk ClNs="id" nm="pkusers"/>
+      <Cl au="1" df="" nm="id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="first_name" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="64" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="last_name" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="64" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="login" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="64" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="password" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="256" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="email" nu="0">
+        <DT arr="0" ds="Char" en="" id="1" ln="256" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
+    <CustomTypes/>
+  </Sch>
+  <Dgm nm="diagramA">
+    <RnCf ClkAct="true" FtSz="9" lkStgy="OffsetDirect" zm="1.0">
+      <VbCfg>
+        <Fg ky="Auto Number" vl="0"/>
+        <Fg ky="Check" vl="0"/>
+        <Fg ky="Comment" vl="0"/>
+        <Fg ky="Data Type" vl="1"/>
+        <Fg ky="Default" vl="0"/>
+        <Fg ky="ENUM Values" vl="0"/>
+        <Fg ky="Length" vl="1"/>
+        <Fg ky="Name" vl="1"/>
+        <Fg ky="Nullable" vl="0"/>
+        <Fg ky="Schema Name" vl="0"/>
+        <Fg ky="Signed" vl="0"/>
+      </VbCfg>
+    </RnCf>
+    <DiaProps>
+      <Show AllCols="1" FkCols="1" FkNms="1" PkCols="1"/>
+      <ErNotation>DbwErNotation</ErNotation>
+      <svg path=""/>
+    </DiaProps>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="users" x="14" y="21"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="projects" x="249" y="72"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="stages" x="573" y="28"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="tasks" x="477" y="324"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="project_employers" x="169" y="260"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="task_reports" x="766" y="110"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="task_files" x="414" y="142"/>
+    <TbGl bkCl="ffccccff" sch="schemaA" tbl="task_child_parent" x="852" y="326"/>
+    <FkGl bkCl="ff000000" nm="schemaA.project_employers.fk_project_employer_personal"/>
+    <FkGl bkCl="ff000000" nm="schemaA.project_employers.fk_project_employer_project"/>
+    <FkGl bkCl="ff000000" nm="schemaA.stages.fk_stage_project"/>
+    <FkGl bkCl="ff000000" nm="schemaA.task_child_parent.fk_task_child_parent_tasks"/>
+    <FkGl bkCl="ff000000" nm="schemaA.task_files.fk_task_files_task"/>
+    <FkGl bkCl="ff000000" nm="schemaA.task_reports.fk_task_report_task"/>
+    <FkGl bkCl="ff000000" nm="schemaA.tasks.fk_task_project"/>
+    <FkGl bkCl="ff000000" nm="schemaA.tasks.fk_tasks_project_employers"/>
+    <FkGl bkCl="ff000000" nm="schemaA.tasks.fk_tasks_stages"/>
+    <FkGl bkCl="ff000000" nm="schemaA.tasks.fk_tasks_task_child_parent"/>
+    <FkGl bkCl="ff000000" nm="schemaA.tasks.fk_tasks_task_parent_child"/>
+    <Notes/>
+    <Zones/>
+  </Dgm>
+  <RnmMgr NxRnmId="14">
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="projects" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="1" nNm="id" oNm="projectId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="stages" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="2" nNm="id" oNm="stageId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+      <Rnm id="7" nNm="users" oNm="personal"/>
+      <Rnm id="3" nNm="personal" oNm="employer"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+      <Rnm id="11" nNm="task_reports" oNm="task_report"/>
+      <Rnm id="5" nNm="task_report" oNm="task_text"/>
+      <Rnm id="4" nNm="task_text" oNm="task_time"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="task_files" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="6" nNm="id" oNm="task_filesId"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+      <Rnm id="8" nNm="projects" oNm="project"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+      <Rnm id="9" nNm="project_employers" oNm="project_employer"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+      <Rnm id="10" nNm="tasks" oNm="task"/>
+    </RnmCh>
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+      <Rnm id="12" nNm="stages" oNm="stage"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="project_employers" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="13" nNm="user_id" oNm="personal_id"/>
+    </RnmCh>
+  </RnmMgr>
+  <DbDocOptionMgr>
+    <BasicOptionMgr>
+      <Name>db.doc.option.mgr</Name>
+      <BoolOpt lbl="Diagrams" nm="doc.diagrams" on="1" spl="0"/>
+      <BoolOpt lbl="Foreign Keys" nm="doc.fks" on="1" spl="0"/>
+      <BoolOpt lbl="Indexes" nm="doc.indexes" on="1" spl="0"/>
+      <BoolOpt lbl="Overwrite CSS File" nm="doc.overwrite.css" on="1" spl="0"/>
+      <BoolOpt lbl="Procedures" nm="doc.procs" on="1" spl="0"/>
+      <BoolOpt lbl="Schemas" nm="doc.schemas" on="1" spl="0"/>
+      <BoolOpt lbl="Sequences" nm="doc.sequences" on="1" spl="0"/>
+      <BoolOpt lbl="Tables" nm="doc.tables" on="1" spl="0"/>
+      <BoolOpt lbl="Triggers" nm="doc.triggers" on="1" spl="0"/>
+      <BoolOpt lbl="Views" nm="doc.views" on="1" spl="0"/>
+    </BasicOptionMgr>
+  </DbDocOptionMgr>
+  <OpenEditors>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="1"/>
+  </OpenEditors>
+  <TreePaths>
+    <TreePath/>
+  </TreePaths>
+</Db>
