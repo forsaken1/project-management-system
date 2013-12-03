@@ -11,17 +11,20 @@
 |
 */
 
-Route::get('/', array('before' => 'auth',  'uses' => 'HomeController@index'));
+Route::group(array('before' => 'auth'), function() {
+	Route::get('/',                        'HomeController@index');
+});
 
 
-// Confide routes
-Route::get( 'user/create',                 'UserController@create');
-Route::post('user',                        'UserController@store');
-Route::get( 'user/login',                  'UserController@login');
-Route::post('user/login',                  'UserController@do_login');
-Route::get( 'user/confirm/{code}',         'UserController@confirm');
-Route::get( 'user/forgot_password',        'UserController@forgot_password');
-Route::post('user/forgot_password',        'UserController@do_forgot_password');
-Route::get( 'user/reset_password/{token}', 'UserController@reset_password');
-Route::post('user/reset_password',         'UserController@do_reset_password');
-Route::get( 'user/logout',                 'UserController@logout');
+Route::group(array('prefix' => 'user'), function() {
+	Route::get( 'create',                  'UserController@create');
+	Route::post('/',                       'UserController@store');
+	Route::get( 'login',                   'UserController@login');
+	Route::post('login',                   'UserController@do_login');
+	Route::get( 'confirm/{code}',          'UserController@confirm');
+	Route::get( 'forgot_password',         'UserController@forgot_password');
+	Route::post('forgot_password',         'UserController@do_forgot_password');
+	Route::get( 'reset_password/{token}',  'UserController@reset_password');
+	Route::post('reset_password',          'UserController@do_reset_password');
+	Route::get( 'logout',                  'UserController@logout');
+});
