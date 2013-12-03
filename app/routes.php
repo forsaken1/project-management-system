@@ -29,6 +29,10 @@ Route::group(array('prefix' => 'user'), function() {
 	Route::get( 'logout',                  'UserController@logout');
 });
 
+Route::group(array('prefix' => 'admin'), function() {
+	Route::resource('projects',            'Admin\ProjectsController');
+});
+
 App::missing(function ($exception) {
 	return Response::view('errors.missing', array(), 404);
 });
