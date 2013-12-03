@@ -50,10 +50,10 @@ class ProjectsController extends \BaseController {
 		{
 			$this->project->create($input);
 
-			return \Redirect::route('projects.index');
+			return \Redirect::route('admin.projects.index');
 		}
 
-		return \Redirect::route('projects.create')
+		return \Redirect::route('admin.projects.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -84,7 +84,7 @@ class ProjectsController extends \BaseController {
 
 		if (is_null($project))
 		{
-			return \Redirect::route('projects.index');
+			return \Redirect::route('admin.projects.index');
 		}
 
 		return \View::make('admin.projects.edit', compact('project'));
@@ -106,10 +106,10 @@ class ProjectsController extends \BaseController {
 			$project = $this->project->find($id);
 			$project->update($input);
 
-			return \Redirect::route('projects.show', $id);
+			return \Redirect::route('admin.projects.show', $id);
 		}
 
-		return \Redirect::route('projects.edit', $id)
+		return \Redirect::route('admin.projects.edit', $id)
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -125,7 +125,7 @@ class ProjectsController extends \BaseController {
 	{
 		$this->project->find($id)->delete();
 
-		return \Redirect::route('projects.index');
+		return \Redirect::route('admin.projects.index');
 	}
 
 }
