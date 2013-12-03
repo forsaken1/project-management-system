@@ -2,16 +2,17 @@
 
 @section('main')
 
-<h1>All Projects</h1>
+<h1>Все проекты</h1>
 
-<p>{{ link_to_route('admin.projects.create', 'Add new project') }}</p>
+<p>{{ link_to_route('admin.projects.create', 'Создать новый проект') }}</p>
 
 @if ($projects->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Date_start</th>
+				<th>Название</th>
+				<th>Дата начала</th>
+				<th>Дата окончания</th>
 			</tr>
 		</thead>
 
@@ -20,10 +21,10 @@
 				<tr>
 					<td>{{{ $project->name }}}</td>
 					<td>{{{ $project->date_start }}}</td>
-                    <td>{{ link_to_route('admin.projects.edit', 'Edit', array($project->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('admin.projects.edit', 'Редактировать', array($project->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.projects.destroy', $project->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit('Удалить', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
 				</tr>
@@ -31,7 +32,7 @@
 		</tbody>
 	</table>
 @else
-	There are no projects
+	Нет проектов
 @endif
 
 @stop

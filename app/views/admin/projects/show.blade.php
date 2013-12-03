@@ -2,28 +2,30 @@
 
 @section('main')
 
-<h1>Show Project</h1>
+<h1>Проект: {{{ $project->name }}}</h1>
 
-<p>{{ link_to_route('admin.projects.index', 'Return to all projects') }}</p>
+<p>{{ link_to_route('admin.projects.index', 'Назад ко всем проектам') }}</p>
 
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th>Name</th>
-				<th>Date_start</th>
+			<th>Название</th>
+			<th>Дата начала</th>
+			<th>Дата окончания</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
 			<td>{{{ $project->name }}}</td>
-					<td>{{{ $project->date_start }}}</td>
-                    <td>{{ link_to_route('admin.projects.edit', 'Edit', array($project->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.projects.destroy', $project->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
+			<td>{{{ $project->date_start }}}</td>
+			<td>{{{ $project->date_end }}}</td>
+            <td>{{ link_to_route('admin.projects.edit', 'Редактировать', array($project->id), array('class' => 'btn btn-info')) }}</td>
+            <td>
+                {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.projects.destroy', $project->id))) }}
+                    {{ Form::submit('Удалить', array('class' => 'btn btn-danger')) }}
+                {{ Form::close() }}
+            </td>
 		</tr>
 	</tbody>
 </table>
