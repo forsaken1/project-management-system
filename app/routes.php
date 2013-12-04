@@ -42,3 +42,5 @@ App::missing(function ($exception) {
 
 
 Route::resource('tasks', 'TasksController');
+
+Route::resource('stages', 'StagesController');

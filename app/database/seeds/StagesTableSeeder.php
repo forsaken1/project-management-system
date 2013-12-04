@@ -1,0 +1,18 @@
+<?php
+
+class StagesTableSeeder extends Seeder {
+
+	public function run()
+	{
+		// Uncomment the below to wipe the table clean before populating
+		// DB::table('stages')->truncate();
+
+		$stages = array(
+
+		);
+
+		// Uncomment the below to run the seeder
+		// DB::table('stages')->insert($stages);
+	}
+
+}
