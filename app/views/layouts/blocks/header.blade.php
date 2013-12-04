@@ -1,6 +1,6 @@
 {{
   Navbar::create(array(), Navbar::FIX_TOP)
-      ->with_brand('Project Manager System :: Administrator', '/admin')
+      ->with_brand('Project Manager System', '/')
       ->with_menus(
         Navigation::links(
           array(
