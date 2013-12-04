@@ -4,7 +4,7 @@
       ->with_menus(
         Navigation::links(
           array(
-            array('Проекты', '/admin/projects', strstr(URL::current(), '/admin/projects')),
+            array('Проекты', '/projects', strstr(URL::current(), '/projects')),
           )
         )
       )
