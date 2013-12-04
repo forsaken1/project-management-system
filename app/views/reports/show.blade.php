@@ -1,33 +1,33 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
 @section('main')
 
-<h1>Show Report</h1>
+<h1>Отчет #{{{ $report->id }}}</h1>
 
-<p>{{ link_to_route('reports.index', 'Return to all reports') }}</p>
+<p>{{ link_to_route('reports.index', 'Назад ко всем отчетам') }}</p>
 
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th>Time_start</th>
-				<th>Time_end</th>
-				<th>Text</th>
-				<th>Task_id</th>
+			<th>Время начала</th>
+			<th>Время окончания</th>
+			<th>Отчет</th>
+			<th>Задача</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
 			<td>{{{ $report->time_start }}}</td>
-					<td>{{{ $report->time_end }}}</td>
-					<td>{{{ $report->text }}}</td>
-					<td>{{{ $report->task_id }}}</td>
-                    <td>{{ link_to_route('reports.edit', 'Edit', array($report->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('reports.destroy', $report->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
+			<td>{{{ $report->time_end }}}</td>
+			<td>{{{ $report->text }}}</td>
+			<td>{{{ $report->task_id }}}</td>
+            <td>{{ link_to_route('reports.edit', 'Редактировать', array($report->id), array('class' => 'btn btn-info')) }}</td>
+            <td>
+                {{ Form::open(array('method' => 'DELETE', 'route' => array('reports.destroy', $report->id))) }}
+                    {{ Form::submit('Удалить', array('class' => 'btn btn-danger')) }}
+                {{ Form::close() }}
+            </td>
 		</tr>
 	</tbody>
 </table>

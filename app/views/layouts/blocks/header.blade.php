@@ -7,6 +7,7 @@
             array('Проекты', '/projects', strstr(URL::current(), '/projects')),
             array('Стадии', '/stages', strstr(URL::current(), '/stages')),
             array('Задачи', '/tasks', strstr(URL::current(), '/tasks')),
+            array('Отчеты', '/reports', strstr(URL::current(), '/reports')),
           )
         )
       )

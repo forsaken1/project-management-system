@@ -1,33 +1,33 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
 @section('main')
 
-<h1>Create Report</h1>
+<h1>Создать отчет</h1>
 
 {{ Form::open(array('route' => 'reports.store')) }}
 	<ul>
         <li>
-            {{ Form::label('time_start', 'Time_start:') }}
+            {{ Form::label('time_start', 'Время начала:') }}
             {{ Form::text('time_start') }}
         </li>
 
         <li>
-            {{ Form::label('time_end', 'Time_end:') }}
+            {{ Form::label('time_end', 'Время конца:') }}
             {{ Form::text('time_end') }}
         </li>
 
         <li>
-            {{ Form::label('text', 'Text:') }}
+            {{ Form::label('text', 'Отчет:') }}
             {{ Form::textarea('text') }}
         </li>
 
         <li>
-            {{ Form::label('task_id', 'Task_id:') }}
+            {{ Form::label('task_id', 'Задача:') }}
             {{ Form::text('task_id') }}
         </li>
 
 		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+			{{ Form::submit('Создать', array('class' => 'btn btn-info')) }}
 		</li>
 	</ul>
 {{ Form::close() }}
