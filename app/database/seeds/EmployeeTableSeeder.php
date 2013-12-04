@@ -5,7 +5,7 @@ class EmployeeTableSeeder extends Seeder {
 	public function run()
 	{
 		// Uncomment the below to wipe the table clean before populating
-		DB::table('employee')->truncate();
+		DB::table('employees')->truncate();
 
 		$employee[] = array(
 			'user_id' => '2',
@@ -32,7 +32,7 @@ class EmployeeTableSeeder extends Seeder {
 		);
 
 		// Uncomment the below to run the seeder
-		DB::table('employee')->insert($employee);
+		DB::table('employees')->insert($employee);
 	}
 
 }

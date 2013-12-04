@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEmployeeTable extends Migration {
+class CreateEmployeesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -16,7 +16,7 @@ class CreateEmployeeTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->integer('project_id')->unsigned();
-			$table->boolean('manager');
+			$table->boolean('is_manager');
 			$table->timestamps();
 		});
 	}
