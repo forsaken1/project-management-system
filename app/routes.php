@@ -16,6 +16,9 @@ Route::group(array('before' => 'auth'), function() {
 	
 	Route::get('projects', array('as' => 'projects.index', 'uses' => 'ProjectsController@index'));
 	Route::get('projects/{id}',            'ProjectsController@show')->where('id', '[0-9]+');
+
+	Route::resource('tasks',               'TasksController');
+	Route::resource('stages',              'StagesController');
 });
 
 
@@ -39,8 +42,3 @@ Route::group(array('prefix' => 'admin'), function() {
 App::missing(function ($exception) {
 	return Response::view('errors.missing', array(), 404);
 });
-
-
-Route::resource('tasks', 'TasksController');
-
-Route::resource('stages', 'StagesController');
