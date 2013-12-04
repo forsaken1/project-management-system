@@ -13,6 +13,9 @@
 
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/',                        'HomeController@index');
+	
+	Route::get('projects', array('as' => 'projects.index', 'uses' => 'ProjectsController@index'));
+	Route::get('projects/{id}',            'ProjectsController@show')->where('id', '[0-9]+');
 });
 
 
