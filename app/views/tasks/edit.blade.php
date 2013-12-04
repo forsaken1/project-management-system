@@ -1,48 +1,48 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
 @section('main')
 
-<h1>Edit Task</h1>
+<h1>Редактировать задачу</h1>
 {{ Form::model($task, array('method' => 'PATCH', 'route' => array('tasks.update', $task->id))) }}
 	<ul>
         <li>
-            {{ Form::label('priority', 'Priority:') }}
+            {{ Form::label('name', 'Название:') }}
+            {{ Form::text('name') }}
+        </li>
+
+        <li>
+            {{ Form::label('priority', 'Приоритет:') }}
             {{ Form::input('number', 'priority') }}
         </li>
 
         <li>
-            {{ Form::label('status', 'Status:') }}
+            {{ Form::label('status', 'Статус:') }}
             {{ Form::input('number', 'status') }}
         </li>
 
         <li>
-            {{ Form::label('work_time', 'Work_time:') }}
+            {{ Form::label('work_time', 'Время работы:') }}
             {{ Form::input('number', 'work_time') }}
         </li>
 
         <li>
-            {{ Form::label('stage_id', 'Stage_id:') }}
+            {{ Form::label('stage_id', 'Стадия:') }}
             {{ Form::input('number', 'stage_id') }}
         </li>
 
         <li>
-            {{ Form::label('employer_id', 'Employer_id:') }}
+            {{ Form::label('employer_id', 'Работник:') }}
             {{ Form::input('number', 'employer_id') }}
         </li>
 
         <li>
-            {{ Form::label('project_id', 'Project_id:') }}
+            {{ Form::label('project_id', 'Проект:') }}
             {{ Form::input('number', 'project_id') }}
         </li>
 
-        <li>
-            {{ Form::label('name', 'Name:') }}
-            {{ Form::text('name') }}
-        </li>
-
 		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('tasks.show', 'Cancel', $task->id, array('class' => 'btn')) }}
+			{{ Form::submit('Сохранить', array('class' => 'btn btn-info')) }}
+			{{ link_to_route('tasks.show', 'Отмена', $task->id, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

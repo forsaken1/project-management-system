@@ -5,6 +5,7 @@
         Navigation::links(
           array(
             array('Проекты', '/projects', strstr(URL::current(), '/projects')),
+            array('Задачи', '/tasks', strstr(URL::current(), '/tasks')),
           )
         )
       )

@@ -1,39 +1,39 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
 @section('main')
 
-<h1>All Tasks</h1>
+<h1>Все задачи</h1>
 
-<p>{{ link_to_route('tasks.create', 'Add new task') }}</p>
+<p>{{ link_to_route('tasks.create', 'Добавить новую задачу') }}</p>
 
 @if ($tasks->count())
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Priority</th>
-				<th>Status</th>
-				<th>Work_time</th>
-				<th>Stage_id</th>
-				<th>Employer_id</th>
-				<th>Project_id</th>
-				<th>Name</th>
+				<th>Название</th>
+				<th>Приоритет</th>
+				<th>Статус</th>
+				<th>Время работы</th>
+				<th>Стадия</th>
+				<th>Работник</th>
+				<th>Проект</th>
 			</tr>
 		</thead>
 
 		<tbody>
 			@foreach ($tasks as $task)
 				<tr>
+					<td><a href = '/tasks/{{{ $task->id }}}'>{{{ $task->name }}}</a></td>
 					<td>{{{ $task->priority }}}</td>
 					<td>{{{ $task->status }}}</td>
 					<td>{{{ $task->work_time }}}</td>
 					<td>{{{ $task->stage_id }}}</td>
 					<td>{{{ $task->employer_id }}}</td>
 					<td>{{{ $task->project_id }}}</td>
-					<td>{{{ $task->name }}}</td>
-                    <td>{{ link_to_route('tasks.edit', 'Edit', array($task->id), array('class' => 'btn btn-info')) }}</td>
+                    <td>{{ link_to_route('tasks.edit', 'Редактировать', array($task->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('tasks.destroy', $task->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit('Удалить', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}
                     </td>
 				</tr>
@@ -41,7 +41,7 @@
 		</tbody>
 	</table>
 @else
-	There are no tasks
+	Нет задач
 @endif
 
 @stop
