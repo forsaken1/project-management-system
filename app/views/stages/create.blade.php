@@ -1,28 +1,28 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
 @section('main')
 
-<h1>Create Stage</h1>
+<h1>Создать стадию</h1>
 
 {{ Form::open(array('route' => 'stages.store')) }}
 	<ul>
         <li>
-            {{ Form::label('name', 'Name:') }}
+            {{ Form::label('name', 'Название:') }}
             {{ Form::text('name') }}
         </li>
 
         <li>
-            {{ Form::label('project_id', 'Project_id:') }}
+            {{ Form::label('project_id', 'Проект:') }}
             {{ Form::input('number', 'project_id') }}
         </li>
 
         <li>
-            {{ Form::label('weight', 'Weight:') }}
+            {{ Form::label('weight', 'Вес:') }}
             {{ Form::input('number', 'weight') }}
         </li>
 
 		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+			{{ Form::submit('Создать', array('class' => 'btn btn-info')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

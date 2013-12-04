@@ -6,6 +6,5 @@ class Stage extends Eloquent {
 	public static $rules = array(
 		'name' => 'required',
 		'project_id' => 'required',
-		'weight' => 'required'
 	);
 }

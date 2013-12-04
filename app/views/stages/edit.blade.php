@@ -1,28 +1,28 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
 @section('main')
 
-<h1>Edit Stage</h1>
+<h1>Редактировать стадию</h1>
 {{ Form::model($stage, array('method' => 'PATCH', 'route' => array('stages.update', $stage->id))) }}
 	<ul>
         <li>
-            {{ Form::label('name', 'Name:') }}
+            {{ Form::label('name', 'Название:') }}
             {{ Form::text('name') }}
         </li>
 
         <li>
-            {{ Form::label('project_id', 'Project_id:') }}
+            {{ Form::label('project_id', 'Проект:') }}
             {{ Form::input('number', 'project_id') }}
         </li>
 
         <li>
-            {{ Form::label('weight', 'Weight:') }}
+            {{ Form::label('weight', 'Вес:') }}
             {{ Form::input('number', 'weight') }}
         </li>
 
 		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('stages.show', 'Cancel', $stage->id, array('class' => 'btn')) }}
+			{{ Form::submit('Сохранить', array('class' => 'btn btn-info')) }}
+			{{ link_to_route('stages.show', 'Отмена', $stage->id, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}
