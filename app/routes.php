@@ -39,3 +39,6 @@ Route::group(array('prefix' => 'admin'), function() {
 App::missing(function ($exception) {
 	return Response::view('errors.missing', array(), 404);
 });
+
+
+Route::resource('tasks', 'TasksController');
