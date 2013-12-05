@@ -9,6 +9,7 @@
 		<thead>
 			<tr>
 				<th>Название</th>
+				<th>Количество участников</th>
 				<th>Дата начала</th>
 				<th>Дата окончания</th>
 			</tr>
@@ -18,6 +19,7 @@
 			@foreach ($projects as $project)
 				<tr>
 					<td><a href = '/projects/{{{ $project->id }}}'>{{{ $project->name }}}</a></td>
+					<td>{{{ $project->employee->count() }}}</td>
 					<td>{{{ $project->date_start }}}</td>
 					<td>{{{ $project->date_end }}}</td>
 				</tr>
