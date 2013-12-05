@@ -14,6 +14,23 @@ class ProjectsController extends \BaseController {
 		$this->project = $project;
 	}
 
+	public function people($project_id)
+	{
+		$users = \User::where('is_admin', '=', 0)->get();
+
+		return \View::make('admin.projects.people', compact('users', 'project_id'));
+	}
+
+	public function addEmployer($project_id, $user_id)
+	{
+		
+	}
+
+	public function addManager($project_id, $user_id)
+	{
+		
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
