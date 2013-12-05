@@ -21,33 +21,29 @@ class ProjectsController extends \BaseController {
 		return \View::make('admin.projects.people', compact('users', 'project_id'));
 	}
 
-	public function addEmployee($project_id, $user_id, $manager = 0)
+	public function addPeople($project_id, $user_id, $role)
 	{
 		$employer = \Employee::where('project_id', '=', $project_id)
 			->where('user_id', '=', $user_id)
-			->where('is_manager', '=', $manager)
 			->first();
 
 		if($employer)
 		{
-			$employer->delete();
-			return \Response::json(array('result' => 0));
+			$employer->role = $role;
+			$employer->save();
+			
+			return \Response::json(array('result' => $role));
 		}
 		else
 		{
 			$employer = new \Employee;
 			$employer->project_id = $project_id;
 			$employer->user_id = $user_id;
-			$employer->is_manager = $manager;
+			$employer->role = $role;
 			$employer->save();
 
-			return \Response::json(array('result' => 1));
+			return \Response::json(array('result' => $role));
 		}
-	}
-
-	public function addManager($project_id, $user_id)
-	{
-		return $this->addEmployee($project_id, $user_id, 1);
 	}
 
 	/**
