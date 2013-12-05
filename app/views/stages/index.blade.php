@@ -20,7 +20,7 @@
 			@foreach ($stages as $stage)
 				<tr>
 					<td><a href = '/stages/{{{ $stage->id }}}'>{{{ $stage->name }}}</a></td>
-					<td>{{{ $stage->project_id }}}</td>
+					<td><a href = '/projects/{{{ $stage->project->id }}}'>{{{ $stage->project->name }}}</a></td>
 					<td>{{{ $stage->weight }}}</td>
                     <td>{{ link_to_route('stages.edit', 'Редактировать', array($stage->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
