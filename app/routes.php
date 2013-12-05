@@ -38,8 +38,10 @@ Route::group(array('prefix' => 'user'), function() {
 Route::group(array('prefix' => 'admin'), function() {
 	Route::get('projects/people/{project_id}', array('as' => 'admin.projects.people', 
 		'uses' => 'Admin\ProjectsController@people'))->where('project_id', '[0-9]+');
-	Route::post('project/add_employer/{project_id}/{user_id}', 'Admin\ProjectsController@addEmployer')->where('project_id, user_id', '[0-9]+');
-	Route::post('project/add_manager/{project_id}/{user_id}',  'Admin\ProjectsController@addManager' )->where('project_id, user_id', '[0-9]+');
+
+	Route::post('projects/employee/{project_id}/{user_id}', 'Admin\ProjectsController@addEmployee')->where('project_id, user_id', '[0-9]+');
+	Route::post('projects/manager/{project_id}/{user_id}',  'Admin\ProjectsController@addManager' )->where('project_id, user_id', '[0-9]+');
+	
 	Route::resource('projects',            'Admin\ProjectsController');
 });
 

@@ -21,10 +21,10 @@
 					<td>{{{ $user->first_name }}}</td>
 					<td>{{{ $user->last_name }}}</td>
                     <td>
-                        <input value = 'Назначить менеджером' class = 'btn btn-danger' style = 'width:200px' onclick = 'AddManager(this, {{{ $project_id }}}, {{{ $user->id }}})'>
+                        <input type = submit value = 'Назначить менеджером' class = 'btn btn-danger' style = 'width:200px' onclick = 'AddManager(this, {{{ $project_id }}}, {{{ $user->id }}})'>
                     </td>
                     <td>
-                        <input value = 'Назначить исполнителем' class = 'btn btn-danger' style = 'width:200px' onclick = 'AddEmployee(this, {{{ $project_id }}}, {{{ $user->id }}})'>
+                        <input type = submit value = 'Назначить исполнителем' class = 'btn btn-danger' style = 'width:200px' onclick = 'AddEmployee(this, {{{ $project_id }}}, {{{ $user->id }}})'>
                     </td>
 				</tr>
 			@endforeach
