@@ -8,4 +8,9 @@ class Employee extends Eloquent {
 		'project_id' => 'required',
 		'is_manager' => 'required',
 	);
+
+	public function user()
+	{
+		return $this->belongsTo('User', 'user_id');
+	}
 }

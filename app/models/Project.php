@@ -7,4 +7,9 @@ class Project extends Eloquent {
 		'name' => 'required',
 		'date_start' => 'required'
 	);
+
+	public function employee()
+	{
+		return $this->hasMany('Employee', 'project_id');
+	}
 }
