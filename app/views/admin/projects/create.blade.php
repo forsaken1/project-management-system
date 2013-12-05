@@ -33,15 +33,13 @@
 	</ul>
 @endif
 
-
-<link rel="stylesheet" type="text/css" href="/plugins/anytime/anytime.compressed.css" />
-<script src="/plugins/anytime/jquery-migrate-1.0.0.js"></script><!-- if jQuery 1.9+ -->
-<script src="/plugins/anytime/anytime.compressed.js"></script>
-
-<script>
-$('#date_start').AnyTime_noPicker().AnyTime_picker().focus();
-$('#date_end').AnyTime_noPicker().AnyTime_picker().focus();
+<script type="text/javascript">
+$(function() {
+	$('#date_start').appendDtpicker();
+	$('#date_end').appendDtpicker();
+});
 </script>
+
 
 @stop
 

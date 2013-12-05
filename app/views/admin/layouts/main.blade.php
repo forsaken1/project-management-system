@@ -6,6 +6,9 @@
 		{{ Basset::show('bootstrapper.css') }}
 		{{ Basset::show('bootstrapper.js') }}
 
+		<script type="text/javascript" src="/plugins/calendar/js/jquery.simple-dtpicker.js"></script>
+		<link type="text/css" href="/plugins/calendar/css/jquery.simple-dtpicker.css" rel="stylesheet" />
+
 		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 	</head>
 
