@@ -46,4 +46,28 @@
 	Нет участников
 @endif
 
+<h2>Стадии</h2>
+
+@if ($project->stages->count())
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Название</th>
+				<th>Вес</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			@foreach ($project->stages as $stage)
+				<tr>
+					<td><a href = '/stages/{{{ $stage->id }}}'>{{{ $stage->name }}}</a></td>
+					<td>{{{ $stage->weight }}}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+@else
+	Нет стадий
+@endif
+
 @stop
