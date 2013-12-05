@@ -10,25 +10,25 @@ class EmployeeTableSeeder extends Seeder {
 		$employee[] = array(
 			'user_id' => '2',
 			'project_id' => '1',
-			'is_manager' => '1',
+			'role' => '1',
 		);
 
 		$employee[] = array(
 			'user_id' => '3',
 			'project_id' => '1',
-			'is_manager' => '0',
+			'role' => '2',
 		);
 
 		$employee[] = array(
 			'user_id' => '4',
 			'project_id' => '1',
-			'is_manager' => '0',
+			'role' => '1',
 		);
 
 		$employee[] = array(
 			'user_id' => '5',
 			'project_id' => '1',
-			'is_manager' => '0',
+			'role' => '1',
 		);
 
 		// Uncomment the below to run the seeder
