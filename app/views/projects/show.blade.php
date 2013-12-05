@@ -24,21 +24,26 @@
 
 <h2>Участники</h2>
 
-<table class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Имя</th>
-			<th>Фамилия</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		@foreach($project->employee as $employee)
+@if($project->employee->count())
+	<table class="table table-striped table-bordered">
+		<thead>
 			<tr>
-				<td>{{{ $employee->user->first_name }}}</td>
-				<td>{{{ $employee->user->last_name }}}</td>
+				<th>Имя</th>
+				<th>Фамилия</th>
 			</tr>
-		@endforeach
-	</tbody>
-</table>
+		</thead>
+
+		<tbody>
+			@foreach($project->employee as $employee)
+				<tr>
+					<td>{{{ $employee->user->first_name }}}</td>
+					<td>{{{ $employee->user->last_name }}}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+@else
+	Нет участников
+@endif
+
 @stop
