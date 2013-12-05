@@ -23,7 +23,7 @@
 					<td>{{{ $user->last_name }}}</td>
                     <td>
                     	{{ Form::select('people', array('0' => '<Нет>', '1' => 'Исполнитель', '2' => 'Менеджер'), 
-                    	null, array('onchange' => 'AddPeople(this, '.$project_id.','.$user->id.')')) }}
+                    	$user->getRoleInProject($project_id), array('onchange' => 'AddPeople(this, '.$project_id.','.$user->id.')')) }}
                     </td>
 				</tr>
 			@endforeach
