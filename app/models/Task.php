@@ -7,4 +7,9 @@ class Task extends Eloquent {
 		'name' => 'required',
 		'project_id' => 'required',
 	);
+
+	public function employee()
+	{
+		return $this->belongsTo('Employee', 'employer_id');
+	}
 }

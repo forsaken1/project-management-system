@@ -12,4 +12,9 @@ class Stage extends Eloquent {
 	{
 		return $this->belongsTo('Project', 'project_id');
 	}
+
+	public function tasks()
+	{
+		return $this->hasMany('Task', 'stage_id');
+	}
 }

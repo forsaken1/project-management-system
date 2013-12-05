@@ -6,10 +6,9 @@
 
 <p>{{ link_to_route('stages.index', 'Назад ко всем стадиям') }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped">
 	<thead>
-		<tr>
-			<th>Название</th>
+		<tr>	
 			<th>Проект</th>
 			<th>Вес</th>
 		</tr>
@@ -17,17 +16,40 @@
 
 	<tbody>
 		<tr>
-			<td>{{{ $stage->name }}}</td>
-			<td>{{{ $stage->project_id }}}</td>
+			<td><a href = '/projects/{{{ $stage->project->id }}}'>{{{ $stage->project->name }}}</a></td>
 			<td>{{{ $stage->weight }}}</td>
-            <td>{{ link_to_route('stages.edit', 'Редактировать', array($stage->id), array('class' => 'btn btn-info')) }}</td>
-            <td>
-                {{ Form::open(array('method' => 'DELETE', 'route' => array('stages.destroy', $stage->id))) }}
-                    {{ Form::submit('Удалить', array('class' => 'btn btn-danger')) }}
-                {{ Form::close() }}
-            </td>
 		</tr>
 	</tbody>
 </table>
+
+<h2>Задачи</h2>
+
+@if ($stage->tasks->count())
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Название</th>
+				<th>Приоритет</th>
+				<th>Статус</th>
+				<th>Время работы</th>
+				<th>Работник</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			@foreach ($stage->tasks as $task)
+				<tr>
+					<td><a href = '/tasks/{{{ $task->id }}}'>{{{ $task->name }}}</a></td>
+					<td>{{{ $task->priority }}}</td>
+					<td>{{{ $task->status }}}</td>
+					<td>{{{ $task->work_time }}}</td>
+					<td>{{{ $task->employee->user->first_name.' '.$task->employee->user->last_name }}}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+@else
+	Нет задач
+@endif
 
 @stop
