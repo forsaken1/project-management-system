@@ -23,11 +23,11 @@
 			@foreach ($reports as $report)
 				<tr>
 					<td><a href = '/reports/{{{ $report->id }}}'>{{{ $report->id }}}</a></td>
-					<td>{{{ $report->employer_id }}}</td>
+					<td>{{{ $report->employee->name }}}</td>
 					<td>{{{ $report->text }}}</td>
 					<td>{{{ $report->time_start }}}</td>
 					<td>{{{ $report->time_end }}}</td>
-					<td>{{{ $report->task_id }}}</td>
+					<td><a href = '/tasks/{{{ $report->task_id }}}'>{{{ $report->task->name }}}</a></td>
                     <td>{{ link_to_route('reports.edit', 'Редактировать', array($report->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('reports.destroy', $report->id))) }}
