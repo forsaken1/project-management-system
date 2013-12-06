@@ -12,12 +12,12 @@
 
         <li>
             {{ Form::label('priority', 'Приоритет:') }}
-            {{ Form::input('number', 'priority') }}
+            {{ Form::prioritySelector($task->priority) }}
         </li>
 
         <li>
             {{ Form::label('status', 'Статус:') }}
-            {{ Form::input('number', 'status') }}
+            {{ Form::statusSelector($task->status) }}
         </li>
 
         <li>
@@ -27,17 +27,12 @@
 
         <li>
             {{ Form::label('stage_id', 'Стадия:') }}
-            {{ Form::input('number', 'stage_id') }}
+            {{ Form::select('stage_id', Stage::all()->lists('name', 'id'), $task->stage->id) }}
         </li>
 
         <li>
             {{ Form::label('employer_id', 'Работник:') }}
-            {{ Form::input('number', 'employer_id') }}
-        </li>
-
-        <li>
-            {{ Form::label('project_id', 'Проект:') }}
-            {{ Form::input('number', 'project_id') }}
+            {{ Form::select('employer_id', Employee::all()->lists('name', 'id'), $task->employee_id) }}
         </li>
 
 		<li>

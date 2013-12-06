@@ -5,7 +5,6 @@ class Task extends Eloquent {
 
 	public static $rules = array(
 		'name' => 'required',
-		'project_id' => 'required',
 	);
 
 	public function employee()
