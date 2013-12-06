@@ -11,24 +11,28 @@ class EmployeeTableSeeder extends Seeder {
 			'user_id' => '2',
 			'project_id' => '1',
 			'role' => '1',
+			'name' => 'Крылов Алексей',
 		);
 
 		$employee[] = array(
 			'user_id' => '3',
 			'project_id' => '1',
 			'role' => '2',
+			'name' => 'Сергей Петров',
 		);
 
 		$employee[] = array(
 			'user_id' => '4',
 			'project_id' => '1',
 			'role' => '1',
+			'name' => 'Александр Пушкин',
 		);
 
 		$employee[] = array(
 			'user_id' => '5',
 			'project_id' => '1',
 			'role' => '1',
+			'name' => 'Владимир Ленин',
 		);
 
 		// Uncomment the below to run the seeder

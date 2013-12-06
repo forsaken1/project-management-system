@@ -17,6 +17,7 @@ class CreateEmployeesTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->integer('project_id')->unsigned();
 			$table->integer('role');
+			$table->string('name', 128);
 			$table->timestamps();
 		});
 	}

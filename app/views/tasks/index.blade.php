@@ -27,7 +27,7 @@
 					<td>{{{ Form::priority($task->priority) }}}</td>
 					<td>{{{ Form::status($task->status) }}}</td>
 					<td>{{{ $task->work_time }}} часов</td>
-					<td>{{{ $task->employee->user->first_name.' '.$task->employee->user->last_name }}}</td>
+					<td>{{{ $task->employee->name }}}</td>
 					<td><a href = '/projects/{{{ $task->project->id }}}'>{{{ $task->project->name }}}</a></td>
 					<td><a href = '/stages/{{{ $task->stage->id }}}'>{{{ $task->stage->name }}}</a></td>
                     <td>{{ link_to_route('tasks.edit', 'Редактировать', array($task->id), array('class' => 'btn btn-info')) }}</td>
