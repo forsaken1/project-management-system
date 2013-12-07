@@ -21,4 +21,9 @@ class Task extends Eloquent {
 	{
 		return $this->belongsTo('Stage', 'stage_id');
 	}
+
+	public function reports()
+	{
+		return $this->hasMany('Report', 'task_id');
+	}
 }
