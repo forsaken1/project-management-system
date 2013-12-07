@@ -23,9 +23,13 @@
 			<td>{{{ Form::priority($task->priority) }}}</td>
 			<td>{{{ Form::status($task->status) }}}</td>
 			<td>{{{ $task->work_time }}} часов</td>
-			<td>{{{ $task->employee->user->first_name.' '.$task->employee->user->last_name }}}</td>
+			<td>{{{ $task->employee ? $task->employee->name : 'Нет' }}}</td>
 			<td><a href = '/projects/{{{ $task->project->id }}}'>{{{ $task->project->name }}}</a></td>
-			<td><a href = '/stages/{{{ $task->stage->id }}}'>{{{ $task->stage->name }}}</a></td>
+			@if($task->stage)
+				<td><a href = '/stages/{{{ $task->stage->id }}}'>{{{ $task->stage->name }}}</a></td>
+			@else
+				<td>Нет</td>
+			@endif
             <td>{{ link_to_route('tasks.edit', 'Редактировать', array($task->id), array('class' => 'btn btn-info')) }}</td>
             <td>
                 {{ Form::open(array('method' => 'DELETE', 'route' => array('tasks.destroy', $task->id))) }}

@@ -27,12 +27,12 @@
 
         <li>
             {{ Form::label('stage_id', 'Стадия:') }}
-            {{ Form::select('stage_id', Stage::all()->lists('name', 'id'), $task->stage->id) }}
+            {{ Form::select('stage_id', ['0' => 'Нет'] + Stage::all()->lists('name', 'id'), $task->stage_id) }}
         </li>
 
         <li>
             {{ Form::label('employer_id', 'Работник:') }}
-            {{ Form::select('employer_id', Employee::all()->lists('name', 'id'), $task->employee_id) }}
+            {{ Form::select('employer_id', ['0' => 'Нет'] + Employee::all()->lists('name', 'id'), $task->employee_id) }}
         </li>
 
 		<li>

@@ -12,33 +12,33 @@
         </li>
 
         <li>
+            {{ Form::label('work_time', 'Время работы:') }}
+            {{ Form::input('number', 'work_time') }}
+        </li>
+        
+        <li>
             {{ Form::label('priority', 'Приоритет:') }}
-            {{ Form::input('number', 'priority') }}
+            {{ Form::prioritySelector('priority') }}
         </li>
 
         <li>
             {{ Form::label('status', 'Статус:') }}
-            {{ Form::input('number', 'status') }}
-        </li>
-
-        <li>
-            {{ Form::label('work_time', 'Время работы:') }}
-            {{ Form::input('number', 'work_time') }}
+            {{ Form::statusSelector('status') }}
         </li>
 
         <li>
             {{ Form::label('stage_id', 'Стадия:') }}
-            {{ Form::input('number', 'stage_id') }}
+            {{ Form::select('stage_id', ['0' => 'Нет'] + Stage::all()->lists('name', 'id')) }}
         </li>
 
         <li>
             {{ Form::label('employer_id', 'Работник:') }}
-            {{ Form::input('number', 'employer_id') }}
+            {{ Form::select('employer_id', ['0' => 'Нет'] + Employee::all()->lists('name', 'id')) }}
         </li>
 
         <li>
             {{ Form::label('project_id', 'Проект:') }}
-            {{ Form::input('number', 'project_id') }}
+            {{ Form::select('project_id', Project::all()->lists('name', 'id')) }}
         </li>
 
 		<li>

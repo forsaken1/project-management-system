@@ -13,7 +13,7 @@
 
         <li>
             {{ Form::label('project_id', 'Проект:') }}
-            {{ Form::input('number', 'project_id') }}
+            {{ Form::select('project_id', Project::all()->lists('name', 'id')) }}
         </li>
 
         <li>
