@@ -13,14 +13,22 @@ include 'macros.php';
 |
 */
 
+Route::pattern('id',         '[0-9]+');
+Route::pattern('user_id',    '[0-9]+');
+Route::pattern('project_id', '[0-9]+');
+Route::pattern('is_manager', '[0-9]+');
+
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/',                        'HomeController@index');
+	Route::get('statistics',               'HomeController@statistics');
+	Route::get('gant',                     'HomeController@gant');
 	
 	Route::get('projects', array('as' => 'projects.index', 'uses' => 'ProjectsController@index'));
-	Route::get('projects/{id}',            'ProjectsController@show')->where('id', '[0-9]+');
+	Route::get('projects/{id}',            'ProjectsController@show');
 
 	Route::resource('tasks',               'TasksController');
 	Route::resource('stages',              'StagesController');
+	Route::resource('reports',             'ReportsController');
 });
 
 
@@ -38,11 +46,12 @@ Route::group(array('prefix' => 'user'), function() {
 });
 
 Route::group(array('prefix' => 'admin'), function() {
-	Route::get('projects/people/{project_id}', array('as' => 'admin.projects.people', 
-		'uses' => 'Admin\ProjectsController@people'))->where('project_id', '[0-9]+');
+	Route::get('/', function() {
+		return Redirect::route('admin.projects.index');
+	});
 
-	Route::post('projects/people/{project_id}/{user_id}/{is_manager}', 
-		'Admin\ProjectsController@addPeople')->where('project_id, user_id, is_manager', '[0-9]+');
+	Route::get('projects/people/{project_id}', array('as' => 'admin.projects.people', 'uses' => 'Admin\ProjectsController@people'));
+	Route::post('projects/people/{project_id}/{user_id}/{is_manager}', 'Admin\ProjectsController@addPeople');
 	
 	Route::resource('projects',            'Admin\ProjectsController');
 });
@@ -51,5 +60,3 @@ App::missing(function ($exception) {
 	return Response::view('errors.missing', array(), 404);
 });
 
-
-Route::resource('reports', 'ReportsController');
