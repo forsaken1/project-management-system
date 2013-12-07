@@ -8,12 +8,15 @@
             array('Стадии', '/stages', strstr(URL::current(), '/stages')),
             array('Задачи', '/tasks', strstr(URL::current(), '/tasks')),
             array('Отчеты', '/reports', strstr(URL::current(), '/reports')),
+            array('Статистика', '/statistics', strstr(URL::current(), '/statistics')),
+            array('Диаграмма Ганта', '/gant', strstr(URL::current(), '/gant')),
           )
         )
       )
       ->with_menus(
         Navigation::links(
           array(
+            array('В панель управления', '/admin'),
             array('Выйти', '/user/logout'),
           )
         ),
