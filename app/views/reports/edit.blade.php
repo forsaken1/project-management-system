@@ -22,7 +22,7 @@
 
         <li>
             {{ Form::label('task_id', 'Задача:') }}
-            {{ Form::text('task_id') }}
+            {{ Form::select('task_id', Task::all()->lists('name', 'id'), $report->task_id) }}
         </li>
 
 		<li>
@@ -37,5 +37,12 @@
 		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 	</ul>
 @endif
+
+<script type="text/javascript">
+$(function() {
+    $('#time_start').appendDtpicker({"current": "{{{ $report->time_start }}}"});
+    $('#time_end').appendDtpicker({"current": "{{{ $report->time_end }}}"});
+});
+</script>
 
 @stop

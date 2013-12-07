@@ -23,7 +23,7 @@
 			@foreach ($reports as $report)
 				<tr>
 					<td><a href = '/reports/{{{ $report->id }}}'>{{{ $report->id }}}</a></td>
-					<td>{{{ $report->employee->name }}}</td>
+					<td>{{{ $report->employee ? $report->employee->name : 'Нет' }}}</td>
 					<td>{{{ $report->text }}}</td>
 					<td>{{{ $report->time_start }}}</td>
 					<td>{{{ $report->time_end }}}</td>

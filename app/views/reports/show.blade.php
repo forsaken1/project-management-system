@@ -9,6 +9,7 @@
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
+			<th>Работник</th>
 			<th>Время начала</th>
 			<th>Время окончания</th>
 			<th>Отчет</th>
@@ -18,6 +19,7 @@
 
 	<tbody>
 		<tr>
+			<td>{{{ $report->employee ? $report->employee->name : 'Нет' }}}</td>
 			<td>{{{ $report->time_start }}}</td>
 			<td>{{{ $report->time_end }}}</td>
 			<td>{{{ $report->text }}}</td>
