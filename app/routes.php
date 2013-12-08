@@ -25,6 +25,7 @@ Route::group(array('before' => 'auth'), function() {
 
 	Route::group(array('prefix' => 'user'), function() {
 		Route::get('/',                    'UserController@index');
+		Route::get('/{id}',                'UserController@user');
 	});
 	
 	Route::get('projects', array('as' => 'projects.index', 'uses' => 'ProjectsController@index'));
