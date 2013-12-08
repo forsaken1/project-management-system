@@ -50,7 +50,7 @@ Route::group(array('prefix' => 'user'), function() {
 	Route::get( 'logout',                  'UserController@logout');
 });
 
-Route::group(array('prefix' => 'admin'), function() {
+Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function() {
 	Route::get('/', function() {
 		return Redirect::route('admin.projects.index');
 	});
