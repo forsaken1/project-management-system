@@ -20,4 +20,12 @@ class HomeController extends BaseController {
 		return Redirect::to('/projects');
 	}
 
+	public function statistics()
+	{
+		$projects = Project::all();
+		$employees = Employee::all();
+		$tasks = Task::all();
+		return View::make('statistics.index', compact('tasks', 'projects', 'employees'));
+	}
+
 }
