@@ -54,9 +54,11 @@ Route::group(array('prefix' => 'admin'), function() {
 	Route::post('projects/people/{project_id}/{user_id}/{is_manager}', 'Admin\ProjectsController@addPeople');
 	
 	Route::resource('projects',            'Admin\ProjectsController');
+	Route::resource('users',               'Admin\UsersController');
 });
 
 App::missing(function ($exception) {
 	return Response::view('errors.missing', array(), 404);
 });
+
 
