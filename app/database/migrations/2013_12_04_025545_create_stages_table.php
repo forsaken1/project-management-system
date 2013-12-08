@@ -17,6 +17,7 @@ class CreateStagesTable extends Migration {
 			$table->string('name', 255);
 			$table->integer('project_id')->unsigned();
 			$table->integer('weight')->unsigned();
+			$table->boolean('completed')->default(false);
 			$table->timestamps();
 		});
 	}

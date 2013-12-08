@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration {
 			$table->string('name', 255);
 			$table->datetime('date_start');
 			$table->datetime('date_end');
+			$table->boolean('completed')->default(false);
 			$table->timestamps();
 		});
 	}
