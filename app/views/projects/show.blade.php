@@ -28,16 +28,14 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Имя</th>
-				<th>Фамилия</th>
+				<th>Имя и Фамилия</th>
 			</tr>
 		</thead>
 
 		<tbody>
 			@foreach($project->employee as $employee)
 				<tr>
-					<td>{{{ $employee->user ? $employee->user->first_name : 'Нет' }}}</td>
-					<td>{{{ $employee->user ? $employee->user->last_name : 'Нет' }}}</td>
+					<td>{{{ $employee->name }}}</td>
 				</tr>
 			@endforeach
 		</tbody>
