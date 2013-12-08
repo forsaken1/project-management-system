@@ -13,7 +13,7 @@ class UserController extends BaseController {
 
     public function index()
     {
-        $user = User::find(2);
+        $user = User::find(Auth::user()->id);
         return View::make('user.index', compact('user'));
     }
 
