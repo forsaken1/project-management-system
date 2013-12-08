@@ -20,7 +20,12 @@ Route::pattern('is_manager', '[0-9]+');
 
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/',                        'HomeController@index');
+
 	Route::get('statistics',               'HomeController@statistics');
+	Route::get('statistics/projects/{id}', 'HomeController@projects');
+	Route::get('statistics/tasks/{id}',    'HomeController@tasks');
+	Route::get('statistics/employees/{id}','HomeController@employees');
+	
 	Route::get('gant',                     'HomeController@gant');
 
 	Route::group(array('prefix' => 'user'), function() {
