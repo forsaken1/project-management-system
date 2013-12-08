@@ -2,7 +2,7 @@
 
 @section('main')
 
-<h1>Edit User</h1>
+<h1>Редактировать пользователя: {{{ $user->first_name.' '.$user->last_name }}}</h1>
 {{ Form::model($user, array('method' => 'PATCH', 'route' => array('admin.users.update', $user->id))) }}
 	<ul>
         <li>
@@ -27,7 +27,12 @@
 
         <li>
             {{ Form::label('password', 'Пароль:') }}
-            {{ Form::password('password', $user->password) }}
+            {{ Form::password('password') }}
+        </li>
+
+        <li>
+            {{ Form::label('password_confirmation', 'Подтверждение пароля:') }}
+            {{ Form::password('password_confirmation') }}
         </li>
 
         <li>
@@ -37,8 +42,8 @@
         </li>
 
 		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('admin.users.show', 'Cancel', $user->id, array('class' => 'btn')) }}
+			{{ Form::submit('Редактировать', array('class' => 'btn btn-info')) }}
+			{{ link_to_route('admin.users.show', 'Отмена', $user->id, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

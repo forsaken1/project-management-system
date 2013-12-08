@@ -2,7 +2,7 @@
 
 @section('main')
 
-<h1>Show User</h1>
+<h1>Пользователь: {{{ $user->first_name.' '.$user->last_name }}}</h1>
 
 <p>{{ link_to_route('admin.users.index', 'Назад ко всем пользователям') }}</p>
 
