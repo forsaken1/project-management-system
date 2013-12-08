@@ -16,8 +16,13 @@
       ->with_menus(
         Navigation::links(
           array(
-            array('В панель управления', '/admin'),
-            array('Выйти', '/user/logout'),
+            array('Пользователь', '#', false, false,
+              array(
+                array('В панель управления', '/admin'),
+                array('В личный кабинет', '/user'),
+                array('Выйти', '/user/logout'),
+              )
+            )
           )
         ),
         array('class' => 'pull-right')
