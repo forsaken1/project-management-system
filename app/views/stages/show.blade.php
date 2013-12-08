@@ -43,7 +43,7 @@
 					<td>{{{ $task->priority }}}</td>
 					<td>{{{ $task->status }}}</td>
 					<td>{{{ $task->work_time }}}</td>
-					<td>{{{ $task->employee->user->first_name.' '.$task->employee->user->last_name }}}</td>
+					<td>{{{ $task->employee->name }}}</td>
 				</tr>
 			@endforeach
 		</tbody>
