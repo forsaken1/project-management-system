@@ -22,6 +22,10 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/',                        'HomeController@index');
 	Route::get('statistics',               'HomeController@statistics');
 	Route::get('gant',                     'HomeController@gant');
+
+	Route::group(array('prefix' => 'user'), function() {
+		Route::get('/',                    'UserController@index');
+	});
 	
 	Route::get('projects', array('as' => 'projects.index', 'uses' => 'ProjectsController@index'));
 	Route::get('projects/{id}',            'ProjectsController@show');

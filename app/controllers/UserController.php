@@ -11,6 +11,12 @@
 
 class UserController extends BaseController {
 
+    public function index()
+    {
+        $user = User::find(2);
+        return View::make('user.index', compact('user'));
+    }
+
     /**
      * Displays the form for account creation
      *
