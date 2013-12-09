@@ -28,4 +28,25 @@ class HomeController extends BaseController {
 		return View::make('statistics.index', compact('tasks', 'projects', 'employees'));
 	}
 
+	public function projects($id)
+	{
+		$project = Project::find($id);
+
+		return View::make('statistics.projects', compact('project'));
+	}
+
+	public function tasks($id)
+	{
+		$task = Task::find($id);
+
+		return View::make('statistics.tasks', compact('task'));	
+	}
+
+	public function employees($id)
+	{
+		$employee = Employee::find($id);
+
+		return View::make('statistics.employees', compact('employee'));
+	}
+
 }

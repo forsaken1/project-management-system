@@ -17,4 +17,9 @@ class Project extends Eloquent {
 	{
 		return $this->hasMany('Stage', 'project_id');
 	}
+
+	public function tasks()
+	{
+		return $this->hasMany('Task', 'project_id');
+	}
 }
