@@ -13,4 +13,9 @@ class Employee extends Eloquent {
 	{
 		return $this->belongsTo('User', 'user_id');
 	}
+
+	public function reports()
+	{
+		return $this->hasMany('Report', 'employer_id');
+	}
 }
