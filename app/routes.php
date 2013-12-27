@@ -26,7 +26,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('statistics/tasks/{id}',    'HomeController@tasks');
 	Route::get('statistics/employees/{id}','HomeController@employees');
 	
-	Route::get('gant',                     'HomeController@gant');
+	Route::get('gantt',                    'HomeController@gantt');
 
 	Route::group(array('prefix' => 'user'), function() {
 		Route::get('/',                    'UserController@index');

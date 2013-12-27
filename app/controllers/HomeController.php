@@ -49,4 +49,11 @@ class HomeController extends BaseController {
 		return View::make('statistics.employees', compact('employee'));
 	}
 
+	public function gantt()
+	{
+		$projects = Project::with('tasks', 'tasks.reports')->get();
+
+		return View::make('statistics.gantt', compact('projects'));
+	}
+
 }

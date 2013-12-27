@@ -9,7 +9,7 @@
             array('Задачи', '/tasks', strstr(URL::current(), '/tasks')),
             array('Отчеты', '/reports', strstr(URL::current(), '/reports')),
             array('Статистика', '/statistics', strstr(URL::current(), '/statistics')),
-            array('Диаграмма Ганта', '/gant', strstr(URL::current(), '/gant')),
+            array('Диаграмма Ганта', '/gantt', strstr(URL::current(), '/gantt')),
           )
         )
       )
