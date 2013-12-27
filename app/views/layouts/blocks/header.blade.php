@@ -4,9 +4,9 @@
       ->with_menus(
         Navigation::links(
           array(
-            array('Проекты', '/projects', strstr(URL::current(), '/projects')),
+            array('Проекты', '/projects', preg_match('@projects$@i', URL::current())),
             array('Стадии', '/stages', strstr(URL::current(), '/stages')),
-            array('Задачи', '/tasks', strstr(URL::current(), '/tasks')),
+            array('Задачи', '/tasks', preg_match('@tasks$@i', URL::current())),
             array('Отчеты', '/reports', strstr(URL::current(), '/reports')),
             array('Статистика', '/statistics', strstr(URL::current(), '/statistics')),
             array('Диаграмма Ганта', '/gantt', strstr(URL::current(), '/gantt')),
