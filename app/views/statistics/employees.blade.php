@@ -24,14 +24,14 @@
 					<?php $start = new DateTime($report->time_start) ?>
 					<?php $end = new DateTime($report->time_end) ?>
 					<?php $t = 0 ?>
-					<td>{{{ $t = $start->diff($end)->days }}}</td>
+					<td>{{{ $t = $end->diff($start)->format("%h") }}} часов</td>
 					<?php $all_time += $t ?>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
 
-	Всего затрачено времени: {{{ $all_time }}}
+	Всего затрачено времени: {{{ $all_time }}} часов
 @else
 	Нет деятельности
 @endif
