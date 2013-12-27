@@ -20,6 +20,11 @@
             {{ Form::input('number', 'weight') }}
         </li>
 
+        <li>
+            {{ Form::label('completed', 'Статус:') }}
+            {{ Form::completed($stage->completed ? 1 : 0) }}
+        </li>
+
 		<li>
 			{{ Form::submit('Сохранить', array('class' => 'btn btn-info')) }}
 			{{ link_to_route('stages.show', 'Отмена', $stage->id, array('class' => 'btn')) }}

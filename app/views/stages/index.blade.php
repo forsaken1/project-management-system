@@ -13,6 +13,7 @@
 				<th>Название</th>
 				<th>Проект</th>
 				<th>Вес</th>
+				<th>Статус</th>
 			</tr>
 		</thead>
 
@@ -22,6 +23,7 @@
 					<td><a href = '/stages/{{{ $stage->id }}}'>{{{ $stage->name }}}</a></td>
 					<td><a href = '/projects/{{{ $stage->project->id }}}'>{{{ $stage->project->name }}}</a></td>
 					<td>{{{ $stage->weight }}}</td>
+					<td>{{{ $stage->completed ? 'Завершена' : 'В работе' }}}</td>
                     <td>{{ link_to_route('stages.edit', 'Редактировать', array($stage->id), array('class' => 'btn btn-info')) }}</td>
                     <td>
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('stages.destroy', $stage->id))) }}

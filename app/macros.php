@@ -43,3 +43,12 @@ Form::macro('status', function($param) {
 	);
 	return $options[$param];
 });
+
+Form::macro('completed', function($default = 0, $attr = array()) 
+{
+	$options = array(
+		'0' => 'В работе',
+		'1' => 'Завершена',
+	);
+	return Form::select('completed', $options, $default, $attr);
+});
