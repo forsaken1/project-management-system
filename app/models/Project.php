@@ -22,4 +22,16 @@ class Project extends Eloquent {
 	{
 		return $this->hasMany('Task', 'project_id');
 	}
+
+	public function getStatus()
+	{
+		$allWeight = 0;
+		$completed = 0;
+		foreach ($this->stages as $stage)
+		{
+			$completed += $stage->completed ? $stage->weight : 0;
+			$allWeight += $stage->weight;
+		}
+		return (int)($completed / ($allWeight ?: 1) * 100);
+	}
 }

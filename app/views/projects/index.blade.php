@@ -12,6 +12,7 @@
 				<th>Количество участников</th>
 				<th>Дата начала</th>
 				<th>Дата окончания</th>
+				<th>Статус</th>
 			</tr>
 		</thead>
 
@@ -22,6 +23,7 @@
 					<td>{{{ $project->employee->count() }}}</td>
 					<td>{{{ $project->date_start }}}</td>
 					<td>{{{ $project->date_end }}}</td>
+					<td>{{{ $project->getStatus() }}}%</td>
 				</tr>
 			@endforeach
 		</tbody>
