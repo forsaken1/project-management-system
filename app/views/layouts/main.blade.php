@@ -8,7 +8,6 @@
 
 		<link type="text/css" href="/plugins/calendar/css/jquery.simple-dtpicker.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
-		<link rel="stylesheet" type="text/css" href="/css/gantti.css" />
 		<link rel="stylesheet" type="text/css" href="/css/screen.css" />
 
 		<script type="text/javascript" src="/plugins/calendar/js/jquery.simple-dtpicker.js"></script>

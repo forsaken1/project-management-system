@@ -2,6 +2,27 @@
 
 @section('main')
 
+<link rel=stylesheet href="/plugins/jQueryGantt/platform.css" type="text/css">
+<link rel=stylesheet href="/plugins/jQueryGantt/libs/dateField/jquery.dateField.css" type="text/css">
+<link rel=stylesheet href="/plugins/jQueryGantt/gantt.css" type="text/css">
+
+<script src="/plugins/jquery-ui/jquery-1.7.js"></script>
+<script src="/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+ 
+<script src="/plugins/jQueryGantt/libs/jquery.livequery.min.js"></script>
+<script src="/plugins/jQueryGantt/libs/jquery.timers.js"></script>
+<script src="/plugins/jQueryGantt/libs/platform.js"></script>
+<script src="/plugins/jQueryGantt/libs/date.js"></script>
+<script src="/plugins/jQueryGantt/libs/i18nJs.js"></script>
+<script src="/plugins/jQueryGantt/libs/dateField/jquery.dateField.js"></script>
+<script src="/plugins/jQueryGantt/libs/JST/jquery.JST.js"></script>
+ 
+<script src="/plugins/jQueryGantt/ganttUtilities.js"></script>
+<script src="/plugins/jQueryGantt/ganttTask.js"></script>
+<script src="/plugins/jQueryGantt/ganttDrawer.js"></script>
+<script src="/plugins/jQueryGantt/ganttGridEditor.js"></script>
+<script src="/plugins/jQueryGantt/ganttMaster.js"></script>
+
 @if($projects->count())
 	@foreach($projects as $project)
 		<?php
@@ -30,7 +51,7 @@
 				'cellwidth'  => 25,
 				'cellheight' => 35
 			));
-			echo $gantti;
+			//echo $gantti;
 		?>
 	@endforeach
 @else

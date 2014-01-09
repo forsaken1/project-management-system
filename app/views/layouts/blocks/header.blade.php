@@ -10,6 +10,7 @@
             array('Отчеты', '/reports', strstr(URL::current(), '/reports')),
             array('Статистика', '/statistics', strstr(URL::current(), '/statistics')),
             array('Диаграмма Ганта', '/gantt', strstr(URL::current(), '/gantt')),
+            array('Зависимости', '/depend', strstr(URL::current(), '/depend')),
           )
         )
       )

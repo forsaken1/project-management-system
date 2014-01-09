@@ -11,7 +11,6 @@
 		<thead>
 			<tr>
 				<th>Название</th>
-				<th>Родительская</th>
 				<th>Приоритет</th>
 				<th>Статус</th>
 				<th>Время работы</th>
@@ -24,16 +23,7 @@
 		<tbody>
 			@foreach ($tasks as $task)
 				<tr>
-					<?php
-						$parent = DB::table('task_task')->where('task_child', $task->id)->first();
-						$parent_task = $parent ? Task::find($parent->task_parent) : null;
-					?>
 					<td><a href = '/tasks/{{{ $task->id }}}'>{{{ $task->name }}}</a></td>
-					@if($parent_task)
-						<td><a href="/tasks/{{{ $parent_task->id }}}">{{{ $parent_task->name}}}</a></td>
-					@else
-						<td>Нет</td>
-					@endif
 					<td>{{{ Form::priority($task->priority) }}}</td>
 					<td>{{{ Form::status($task->status) }}}</td>
 					<td>{{{ $task->work_time }}} часов</td>

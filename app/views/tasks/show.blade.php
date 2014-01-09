@@ -88,7 +88,7 @@
 	}
 ?>
 
-@if (count($tasks))
+@if (isset($tasks) && count($tasks))
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>

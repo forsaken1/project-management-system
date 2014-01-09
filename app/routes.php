@@ -27,6 +27,10 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('statistics/employees/{id}','HomeController@employees');
 	
 	Route::get('gantt',                    'HomeController@gantt');
+	Route::get('depend',         array('as' => 'tasks.depend',       'uses' => 'TasksController@depend'));
+	Route::get('dependCreate',   array('as' => 'tasks.dependCreate', 'uses' => 'TasksController@dependCreate'));
+	Route::post('depend',        array('as' => 'tasks.dependSave',   'uses' => 'TasksController@dependSave'));
+	Route::delete('depend/{id}', array('as' => 'tasks.dependDelete', 'uses' => 'TasksController@dependDelete'));
 
 	Route::group(array('prefix' => 'user'), function() {
 		Route::get('/',                    'UserController@index');
@@ -70,5 +74,3 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function() {
 App::missing(function ($exception) {
 	return Response::view('errors.missing', array(), 404);
 });
-
-

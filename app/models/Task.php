@@ -26,4 +26,14 @@ class Task extends Eloquent {
 	{
 		return $this->hasMany('Report', 'task_id');
 	}
+
+	public function parents()
+	{
+		return $this->hasMany('TaskDepend', 'task_child');
+	}
+
+	public function childs()
+	{
+		return $this->hasMany('TaskDepend', 'task_parent');
+	}
 }

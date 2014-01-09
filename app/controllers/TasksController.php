@@ -21,7 +21,7 @@ class TasksController extends BaseController {
 	 */
 	public function index()
 	{
-		$tasks = $this->task->all();
+		$tasks = $this->task->with('project', 'employee', 'stage')->get();
 
 		return View::make('tasks.index', compact('tasks'));
 	}
@@ -133,6 +133,39 @@ class TasksController extends BaseController {
 		$this->task->find($id)->delete();
 
 		return Redirect::route('tasks.index');
+	}
+
+	public function depend()
+	{
+		$depends = TaskDepend::with('parent', 'child')->get();
+
+		return View::make('tasks.depend', compact('depends'));
+	}
+
+	public function dependCreate()
+	{
+		$tasks = Task::all();
+
+		return View::make('tasks.dependCreate', compact('tasks'));
+	}
+
+	public function dependSave()
+	{
+		if(Input::get('task_parent') == Input::get('task_child'))
+		{
+			return Redirect::route('tasks.dependCreate')
+				->with('message', 'Задача не может быть зависимой сама себе!');
+		}
+		$input = array_except(Input::all(), array('_token'));
+		TaskDepend::insert($input);
+		return Redirect::route('tasks.depend');
+	}
+
+	public function dependDelete($id)
+	{
+		TaskDepend::find($id)->delete();
+
+		return Redirect::route('tasks.depend');
 	}
 
 }
