@@ -9,6 +9,9 @@
 			setlocale(LC_ALL, 'ru_RU');
 			foreach($project->tasks as $task)
 			{
+				if(!$task->reports->count())
+					continue;
+
 				$max = date_create('1970-01-01 00:00:00');
 				$min = date_create('2100-12-12 00:00:00');
 				foreach($task->reports as $report)

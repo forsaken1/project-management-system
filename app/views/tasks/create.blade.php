@@ -12,6 +12,11 @@
         </li>
 
         <li>
+            {{ Form::label('parent', 'Родительская задача:') }}
+            {{ Form::select('parent', ['0' => 'Нет'] + $tasks, 0) }}
+        </li>
+        
+        <li>
             {{ Form::label('work_time', 'Время работы:') }}
             {{ Form::input('number', 'work_time') }}
         </li>

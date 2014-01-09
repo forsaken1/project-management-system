@@ -33,7 +33,9 @@ class TasksController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('tasks.create');
+		$tasks = $this->task->all()->lists('name', 'id');
+
+		return View::make('tasks.create', compact('tasks'));
 	}
 
 	/**
@@ -43,12 +45,17 @@ class TasksController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
+		$input = array_except(Input::all(), array('parent', '_token'));
 		$validation = Validator::make($input, Task::$rules);
 
 		if ($validation->passes())
 		{
-			$this->task->create($input);
+			$id = Task::insertGetId($input);
+
+			DB::table('task_task')->insert(array(
+				'task_child' => $id,
+				'task_parent' => Input::get('parent'),
+			));
 
 			return Redirect::route('tasks.index');
 		}
