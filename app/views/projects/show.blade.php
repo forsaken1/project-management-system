@@ -68,4 +68,11 @@
 	Нет стадий
 @endif
 
+<script type="text/javascript">
+$(function()
+{
+	localStorage.setItem('project_id', '{{{ $project->id }}}');
+})
+</script>
+
 @stop

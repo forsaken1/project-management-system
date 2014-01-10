@@ -27,6 +27,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('statistics/employees/{id}','HomeController@employees');
 	
 	Route::get('gantt',                    'HomeController@gantt');
+	Route::post('gantt/{id}',              'HomeController@getGantt');
 	Route::get('depend',         array('as' => 'tasks.depend',       'uses' => 'TasksController@depend'));
 	Route::get('dependCreate',   array('as' => 'tasks.dependCreate', 'uses' => 'TasksController@dependCreate'));
 	Route::post('depend',        array('as' => 'tasks.dependSave',   'uses' => 'TasksController@dependSave'));
