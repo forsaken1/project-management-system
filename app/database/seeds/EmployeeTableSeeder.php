@@ -11,7 +11,7 @@ class EmployeeTableSeeder extends Seeder {
 			'user_id' => '2',
 			'project_id' => '1',
 			'role' => '1',
-			'name' => 'Крылов Алексей',
+			'name' => 'Шувалов Борис',
 		);
 
 		$employee[] = array(
