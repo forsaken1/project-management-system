@@ -13,7 +13,7 @@ class User extends ConfideUser {
 		'last_name' => 'max:64',
 	);
 
-	function beforeSave()
+	function beforeSave($forced = false)
 	{
 		unset($this->password_confirmation);
 		parent::beforeSave();
