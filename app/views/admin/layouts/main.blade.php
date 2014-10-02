@@ -3,8 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		{{ Basset::show('bootstrapper.css') }}
-		{{ Basset::show('bootstrapper.js') }}
+		<script src="/js/jquery.js"></script>
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<script src="/js/bootstrap.js"></script>
 
 		<link type="text/css" href="/plugins/calendar/css/jquery.simple-dtpicker.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
